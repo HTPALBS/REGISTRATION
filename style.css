@@ -1,0 +1,123 @@
+/* General Styling */
+body {
+    background: url('Images/1717246358102.jpeg') no-repeat center center fixed;
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Container Styling */
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+    background: #2c2c2c;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Input Fields */
+input[type="text"], 
+input[type="email"], 
+input[type="tel"], 
+input[type="file"] {
+    width: calc(100% - 20px); /* Dynamic width with padding adjustment */
+    padding: 10px;
+    margin: 10px 0;
+    background: #333;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure proper padding within the input field */
+}
+
+/* Submit Button and Links */
+input[type="submit"], 
+.view-link, 
+.reset-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    margin: 10px 5px;
+}
+
+input[type="submit"]:hover, 
+.view-link:hover, 
+.reset-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #4b4b4b;
+    text-align: left;
+}
+
+th, td {
+    padding: 10px;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+td {
+    background-color: #555;
+}
+
+/* Buttons Section */
+.buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Center Align Content in Forms */
+form {
+    text-align: center;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    input[type="text"], 
+    input[type="email"], 
+    input[type="tel"], 
+    input[type="file"] {
+        width: 100%;
+    }
+
+    input[type="submit"], 
+    .view-link, 
+    .reset-btn {
+        width: 100%;
+    }
+}
+

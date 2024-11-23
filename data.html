@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View All Registrations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            background: #2c2c2c;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #444;
+            text-align: left;
+        }
+        th, td {
+            padding: 10px;
+        }
+        th {
+            background-color: #333;
+        }
+        td {
+            background-color: #555;
+        }
+        .view-link, .reset-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+            margin: 10px 5px;
+        }
+        .view-link:hover, .reset-btn:hover {
+            background-color: #0056b3;
+        }
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    BS0001 TOURNAMENT REGISTRATION DATA
+</header>
+
+<div class="container">
+    <h2 style="text-align: center;">Total Registrations: <span id="totalCount">0</span></h2>
+
+    <!-- Registration Data Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Real Name</th>
+                <th>In-Game Name</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Team Name</th>
+                <th>Members</th>
+            </tr>
+        </thead>
+        <tbody id="data-table">
+            <!-- Data Rows Will Be Injected Here -->
+        </tbody>
+    </table>
+
+    <!-- Buttons -->
+    <div class="buttons">
+        <a href="index.html" class="view-link">Back to Registration</a>
+        <button class="reset-btn" id="resetData">Reset Data</button>
+    </div>
+</div>
+
+<script>
+    // Fetch data from localStorage
+    const registrationData = JSON.parse(localStorage.getItem('registrationData')) || [];
+    
+    // Display total registration count
+    document.getElementById('totalCount').textContent = registrationData.length;
+
+    // Render registration data into table
+    const tableBody = document.getElementById("data-table");
+    registrationData.forEach((entry, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${entry.realName}</td>
+            <td>${entry.inGameName}</td>
+            <td>${entry.email}</td>
+            <td>${entry.contact}</td>
+            <td>${entry.teamName}</td>
+            <td>${entry.members}</td>
+        `;
+        tableBody.appendChild(row);
+    });
+
+    // Reset Data Button Functionality
+    document.getElementById('resetData').addEventListener('click', () => {
+        if (confirm('Are you sure you want to reset all registration data?')) {
+            localStorage.removeItem('registrationData'); // Remove data from localStorage
+            location.reload(); // Refresh the page to reflect changes
+        }
+    });
+</script>
+
+</body>
+</html>
